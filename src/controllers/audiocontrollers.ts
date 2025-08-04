@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { generateExpandedText } from '../services/openaiServices';
-import { convertTextToSpeech } from '../services/ttsService';
+import { generateExpandedText, convertTextToSpeech } from '../services/openaiServices';
+
 import s3 from '../uitils/aws';
 import fs from 'fs';
 import path from 'path';
