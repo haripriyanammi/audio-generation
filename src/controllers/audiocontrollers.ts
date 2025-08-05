@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const generateAudio = async (req: Request, res: Response) => {
   try {
-    const { text } = req.body;
+    const { text,voice } = req.body;
 
     if (!text) {
       return res.status(400).json({ error: 'Text is required' });
@@ -19,7 +19,7 @@ export const generateAudio = async (req: Request, res: Response) => {
 
     const audioPath = path.join(__dirname, '../../audio', filename);
 
-    await convertTextToSpeech(expandedText, audioPath);
+    await convertTextToSpeech(expandedText, audioPath,voice);
 
     const fileContent = fs.readFileSync(audioPath);
 
