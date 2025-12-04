@@ -10,9 +10,10 @@ export const generateAudio = async (req: Request, res: Response) => {
   try {
     const { text,voice } = req.body;
 
-    if (!text) {
+    if (!text) 
+      {
       return res.status(400).json({ error: 'Text is required' });
-    }
+      } 
 
     const expandedText = await generateExpandedText(text);
     const filename = `${uuidv4()}.mp3`;
